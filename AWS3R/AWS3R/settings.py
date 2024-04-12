@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_%tlzo-kj37uor$*gn^fe%9u=i2z0)7&y-zp-qqe98h%^-=ni$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".awsapprunner.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,8 +76,12 @@ WSGI_APPLICATION = 'AWS3R.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ddac_backend',
+        'USER': 'DDAC061320',
+        'PASSWORD': 'Nice10day',
+        'HOST': 'ddacbackend.cd8eu2k4w9p7.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -118,18 +121,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-STORAGES = {
-    "default":{
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles":{
-        "BACKEND": "whitenoise.storage.CompressedMainfestStaticFilesStorage",
-    },
-}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Update AWS_KEY_ID, SECRET_ACCESS_KEY and SESSION_TOKEN fields everytime 
+AWS_ACCESS_KEY_ID = 'ASIAQ3EGU5RWHCFTCDTX '
+AWS_SECRET_ACCESS_KEY = 'eQBtk5Tovvp4gpxqIHVyrQMF8Qn4m/3OR/qVid0/'
+AWS_SESSION_TOKEN='IQoJb3JpZ2luX2VjEB4aCXVzLXdlc3QtMiJHMEUCIQC6GgXh/5cnfaN4AeEtUILxSJjQO7VQ1H/Dgb2p5YwBsAIgWeJ0jLOiMLwIXghzK5UhjJ5yxXTDe1X4tlGIV/cYgYEqsgIIVxAAGgwwNTgyNjQ0NDgxMDgiDB+uGt+p7N08yWYD+CqPAlxm7S2qlf5o67uAGoHRIeekMSHtNZ4RfdlrTyiNjAXDci9Z8iDzaXcVl1jL010EFVsQ849+Fkp/EMJbGkjsrkMJ2t9NluBwGOFr445jYLbeM92lCUhqvEqcvpreZl2xoVWMcqXZ9Ooi4MC2gSuiB3f7Jx91MncswXPyPr7BuMB4FQOQS3vkhiUk8K6jPL6vYJo7vc73N+DEugf3AitI8Mj+7MvsnVteflgtQBeZszUfor1ELmXEqbZv/E3ObCesWgiwpncXfdTDugFB1S6jzA/hyQCBeSuTp0J9tigVGdS9TvM9lXaLo92Nhc+eYwLnTvR7eAvKeFMzA4kHXzE8nwAUbOygiCDDDBHQc9kexkgw6J7jsAY6nQHhWMgD42X4sENklgkrXpo46lKmhK9+F3kONxkT06tyhE6zjJBOUKLBYNeGtGzddOb4tqEEheypLioqOKYOoQgG64HD8DXuVsDkvpaTRJ4YlcIC7Qm8+GRsdNBPGWdLS5M0MMWloszPZAfKDK9BOG+QFU5WQODu9mKGwu9SxF6D3zMtOxswebpV0ozulU4M7mrD+ZDdsDghYgYOxEWj'
+AWS_STORAGE_BUCKET_NAME = 'ddacbackend'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = ' us-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
