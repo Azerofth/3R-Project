@@ -1,0 +1,85 @@
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Post</title>
+</head> -->
+
+{% include 'csslibrary.html' %}
+<!-- <body>
+    <h1>Upload Post</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="post_title">Title:</label>
+            <input type="title" id="post_title" name="post_title">
+        </div>
+        <div>
+            <label for="post_description">Description:</label>
+            <textarea id="post_description" name="post_description"></textarea>
+        </div>
+        <div>
+            <label for="post_image">Image:</label>
+            <input type="file" id="post_image" name="post_image">
+        </div>
+        <div>
+            <label for="post_tags">Tags:</label>
+            <select id="post_tags" name="post_tags">
+                {% for tag in tags %}
+                <option value="{{ tag.id }}">{{ tag.tags_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="post_author">Author:</label>
+            <input type="text" id="post_author" name="post_author" value="{{ request.user.id }}" readonly>
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+</body> -->
+<a href="{% url 'main' %}"
+    class="inline-block mt-4 text-base font-medium text-gray-900 border border-gray-300 px-5 py-3 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+    Back to Main
+</a>
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Upload a post!
+        </h2>
+        <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Share us some of
+            your insights!</p>
+        <form method="POST" enctype="multipart/form-data" class="space-y-8">
+            {% csrf_token %}
+            <div>
+                <label for="post_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    Title </label>
+                <input type="title" id="post_title" name="post_title"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    placeholder="Title..." required>
+            </div>
+            <div>
+                <label for="post_tags">Tags:</label>
+                <select id="post_tags" name="post_tags">
+                    {% for tag in tags %}
+                    <option value="{{ tag.id }}">{{ tag.tags_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="post_description"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                <textarea id="post_description" name="post_description" rows="6"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Write your opinions..."></textarea>
+            </div>
+            <div>
+                <label for="post_image">Image:</label>
+                <input type="file" id="post_image" name="post_image">
+            </div>
+            <div>
+                <label for="post_author">Author: {{ request.user.username }}</label>
+                <input type="text" id="post_author" name="post_author" value="{{ request.user.id }}" hidden></input>
+            </div>
+            <button type="submit"
+                class="w-full text-m font-medium text-gray-900 bg-transparent border border-gray-900 rounded-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">Upload</button>
+        </form>
+    </div>
+</section>
