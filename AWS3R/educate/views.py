@@ -24,10 +24,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('home')
-
-def home(request):
-    return render(request, 'home.html')
+    return redirect('main')
 
 def registration(request):
     if request.method == 'POST':
