@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,8 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware,'
-    
 ]
 
 ROOT_URLCONF = 'AWS3R.urls'
@@ -131,9 +128,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Update AWS_KEY_ID, SECRET_ACCESS_KEY and SESSION_TOKEN fields everytime 
-AWS_ACCESS_KEY_ID = 'ASIAQ3EGU5RWCVRR5VGO'
-AWS_SECRET_ACCESS_KEY = 'bUiCO6oOJnJtqCBFoEK2EHbVGACcdHn0TJZ9nmaS'
-AWS_SESSION_TOKEN='IQoJb3JpZ2luX2VjECgaCXVzLXdlc3QtMiJGMEQCIBWIMU0D6LmITgPTMJJWoAUIG2bQc8M7IXMV7c1S4hlfAiAjBiung46I3XOONjCTZpp7wTP3weYknaS+q0xN+7KUpiqyAghxEAAaDDA1ODI2NDQ0ODEwOCIM4lghoZxwf6GaDQ5jKo8C0zLNgDL8VYqPpdi0PEUrqrd1qHDb6JcrY4Xn6N8NZ+1GjSiMn8gzbDEojUNIjmgwKmYvmzS02GlpzHyiRCco5gczIsGApZ59NZI4FQeh2dF6qPj7XTFxZzq8KVoGDhsxpAB0fakZVrV0JHh/KcMkQ/8lciiS1IBIYPYAtcJWpMFgPyYE8insu9mkmNr6m2k2AKFqh+LofWgugYzMy8Udor8MSvzyYxOLGSuJ9dh950/eQobMGuGS8m40LDHg3SAAHY+osfSM1jFb4S81fAE8ciLoRc3H2QPXxOJxsNgmYbttZxDQP1682Fl2tBqvFT3jtFT5SqYfYztkV0AXGi9s7HwN+ejiLOPEoZJNuGKAaTDGz52xBjqeAfGPO4YxIPu8Y6DOGx7vEAfp5RtTmWY68V+flv2SbjaGxwpeNSoXTlqMsppEt8RzpwKnuR7Eb0GPng3q2YgNrjRtC+jyE+ROU6ACC1OnKcB5XuK+g6H5ABl2kTmL37A4OVr4anJQDtXuWVJT3NV93KQ1T554vjuTZzb3i7uishPCj3Zk5f7BlDLaxCeiawhYBTgVwCImgFGozv8hG6Es'
+AWS_ACCESS_KEY_ID = 'ASIAQ3EGU5RWG2YPPWCX'
+AWS_SECRET_ACCESS_KEY = 'skT6UtiR2JqKQeESUiW9qTHDMGrg5B8JimUZKOL0'
+AWS_SESSION_TOKEN='IQoJb3JpZ2luX2VjEF8aCXVzLXdlc3QtMiJGMEQCIHDsNuaE9VTQ567xSQLndGAwBJUGTgSuuzLu6aEfVWF1AiBO7wdsxW8zItaeB56cQemNfAMIRdfCza9oF6I6fvGPWyq7Agi4//////////8BEAAaDDA1ODI2NDQ0ODEwOCIMrp9JeeUssD+t7oqKKo8CTKwSGYMyrLKA2+O+Iqekr4MzLEhJVHzJsak4IJ57Q7MyVu0Xw8Azv+QX2AL9MGFqyZ3dL4bfSypjgMJVHnNDpzPlExQjgo2oG1wreSghPBRPLXHFP51wNTuPXqHu5pJiVunN9OJZZMgjpkpQq1uJUTRhoWw5CmCGJ7vPSHf/0GODPHM9Y/mzMF66skAvL3kJxDZOZHuZqKqmTvGwxSwmJXUouSQSXrzCRIUJLpRIgWqgfnSKutj9vqzYu99AJty2bk3a8dC+ROPURG3ZLwCUc3uuIvUupMLqKaFSB4+VkHq4LdPKoOgh+7n11QqG4gRkk2s7S4zXh+NtVCeUfOVnwJF63P7B72ehaPvNx5WXLDDa/+GxBjqeAevp9CrvMzhf8A6HdiJGBod+odKyM1Rwe2nz1pgYbZBNcelgIizEZ0P3zPOkLCdgK6YF1mbYaogX79Fr2JLkr08gPPhgiTwSlN8wIqfFQUWalex33qPcVqzesd/sBKPuGgy4GiO7JfCf6eglpQxPe6/3+Tb9WYyOXx8Jgq97t5ta7TvKo3gzhX2pvwAbLPEEvKLpaTJyrpK+Aqb0eciG'
 AWS_STORAGE_BUCKET_NAME = 'ddacs3'
 AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_REGION_NAME = 'us-east-1'
@@ -141,4 +138,3 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERITY = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
